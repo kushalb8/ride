@@ -2,44 +2,32 @@ package com.example.miniridebooking
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : AppCompatActivity() {
+class BookRideActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_book_ride)
 
-        val pickup = findViewById<EditText>(R.id.etPickup)
-        val drop = findViewById<EditText>(R.id.etDrop)
-        val btnCalculate = findViewById<Button>(R.id.btnCalculate)
-        val tvDistance = findViewById<TextView>(R.id.tvDistance)
-        val tvFare = findViewById<TextView>(R.id.tvFare)
-        val btnBookRide = findViewById<Button>(R.id.btnBookRide)
+        val btnBook = findViewById<Button>(R.id.btnBook)
+        val tvStatus = findViewById<TextView>(R.id.tvStatus)
+        val btnSafety = findViewById<Button>(R.id.btnSafety)
 
-        btnBookRide.isEnabled = false
+        btnBook.setOnClickListener {
+            tvStatus.text = "Searching for Ride..."
 
-        btnCalculate.setOnClickListener {
-            if (pickup.text.isEmpty() || drop.text.isEmpty()) {
-                Toast.makeText(this, "Please enter pickup and drop", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
-            val distance = 10 // mocked distance
-            val fare = 10 + (distance * 12)
-
-            tvDistance.text = "Distance: $distance km"
-            tvFare.text = "Fare: ₹$fare"
-
-            btnBookRide.isEnabled = true
+            Handler(Looper.getMainLooper()).postDelayed({
+                tvStatus.text = "Ride Assigned"
+            }, 5000)
         }
 
-        btnBookRide.setOnClickListener {
-            startActivity(Intent(this, BookRideActivity::class.java))
+        btnSafety.setOnClickListener {
+            startActivity(Intent(this, SafetyActivity::class.java))
         }
     }
 }
