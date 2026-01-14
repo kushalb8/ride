@@ -6,23 +6,16 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/btnBook"
-        android:text="Book Ride"
+        android:id="@+id/btnSOS"
+        android:text="SOS"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <TextView
-        android:id="@+id/tvStatus"
+        android:id="@+id/tvSOS"
         android:text=""
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
-
-    <Button
-        android:id="@+id/btnSafety"
-        android:text="Safety (SOS)"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"/>
 </LinearLayout>
