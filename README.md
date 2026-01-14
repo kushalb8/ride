@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="20dp"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.miniridebooking">
 
-    <Button
-        android:id="@+id/btnSOS"
-        android:text="SOS"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+    <application
+        android:allowBackup="true"
+        android:label="Mini Ride Booking"
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
 
-    <TextView
-        android:id="@+id/tvSOS"
-        android:text=""
-        android:textSize="16sp"
-        android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-</LinearLayout>
+        <activity android:name=".SafetyActivity"/>
+        <activity android:name=".BookRideActivity"/>
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
