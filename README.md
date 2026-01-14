@@ -1,33 +1,25 @@
 package com.example.miniridebooking
 
-import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
-class BookRideActivity : AppCompatActivity() {
+class SafetyActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_book_ride)
+        setContentView(R.layout.activity_safety)
 
-        val btnBook = findViewById<Button>(R.id.btnBook)
-        val tvStatus = findViewById<TextView>(R.id.tvStatus)
-        val btnSafety = findViewById<Button>(R.id.btnSafety)
+        val btnSOS = findViewById<Button>(R.id.btnSOS)
+        val tvSOS = findViewById<TextView>(R.id.tvSOS)
 
-        btnBook.setOnClickListener {
-            tvStatus.text = "Searching for Ride..."
+        btnSOS.setOnClickListener {
+            val latitude = 17.3850
+            val longitude = 78.4867
 
-            Handler(Looper.getMainLooper()).postDelayed({
-                tvStatus.text = "Ride Assigned"
-            }, 5000)
-        }
-
-        btnSafety.setOnClickListener {
-            startActivity(Intent(this, SafetyActivity::class.java))
+            tvSOS.text =
+                "Emergency alert sent with your live location\nLat: $latitude, Lng: $longitude"
         }
     }
 }
